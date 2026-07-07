@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+<title>Culebra CRT</title>
+<meta name="description" content="Snake clásico con estética de monitor CRT fosforescente, instalable como app." />
+
+<!-- PWA -->
+<link rel="manifest" href="manifest.json" />
+<meta name="theme-color" content="#0b1410" />
+<link rel="icon" href="icon-192.png" />
+<link rel="apple-touch-icon" href="icon-192.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Culebra" />
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="monitor">
+  <div class="bezel">
+    <div class="brand">CULEBRA·CRT&nbsp;9000</div>
+
+    <div class="screen" id="screen">
+      <div class="scanlines" aria-hidden="true"></div>
+      <div class="vignette" aria-hidden="true"></div>
+      <div class="flicker" aria-hidden="true"></div>
+
+      <header class="hud">
+        <div class="hud-item">
+          <span class="label">SCORE</span>
+          <span class="value" id="score">000000</span>
+        </div>
+        <div class="hud-item hud-item--amber">
+          <span class="label">HI</span>
+          <span class="value" id="highscore">000000</span>
+        </div>
+      </header>
+
+      <div class="game-area">
+        <canvas id="game" width="480" height="480"></canvas>
+
+        <div class="overlay" id="overlay">
+          <pre class="boot-text" id="boot-text"></pre>
+          <h1 class="title" id="title" hidden>CULEBRA<span class="blink">_</span></h1>
+          <p class="hint" id="hint" hidden>FLECHAS / WASD&nbsp;&nbsp;·&nbsp;&nbsp;TOCA Y DESLIZA</p>
+          <button class="btn" id="start-btn" hidden>PRESS START</button>
+          <p class="msg" id="msg" hidden></p>
+        </div>
+      </div>
+
+      <div class="status-bar">
+        <span id="status-text">PAUSA: P&nbsp;&nbsp;·&nbsp;&nbsp;REINICIAR: R</span>
+        <button class="install-btn" id="install-btn" hidden>⤓ INSTALAR APP</button>
+      </div>
+    </div>
+
+    <div class="touch-controls" id="touch-controls">
+      <div class="dpad">
+        <button class="dpad-btn dpad-up" data-dir="up" aria-label="Arriba">▲</button>
+        <button class="dpad-btn dpad-left" data-dir="left" aria-label="Izquierda">◀</button>
+        <button class="dpad-btn dpad-right" data-dir="right" aria-label="Derecha">▶</button>
+        <button class="dpad-btn dpad-down" data-dir="down" aria-label="Abajo">▼</button>
+      </div>
+      <button class="dpad-btn pause-btn" id="pause-btn" aria-label="Pausa">II</button>
+    </div>
+  </div>
+  <div class="stand" aria-hidden="true"></div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
